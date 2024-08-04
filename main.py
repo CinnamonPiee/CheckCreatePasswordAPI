@@ -1,4 +1,3 @@
-# main.py
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from django.conf import settings
@@ -25,7 +24,7 @@ class PasswordCheckResponse(BaseModel):
 
 app = FastAPI()
 
-# Настройка Django
+
 settings.configure(
     SECRET_KEY='your-secret-key',
     INSTALLED_APPS=[
