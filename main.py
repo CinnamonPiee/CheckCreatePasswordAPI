@@ -1,8 +1,9 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from pydantic import BaseModel
 from django.conf import settings
 from django.contrib.auth.hashers import make_password, check_password
 import django
+from config_data.config import settings
 
 
 class PasswordRequest(BaseModel):
@@ -26,7 +27,7 @@ app = FastAPI()
 
 
 settings.configure(
-    SECRET_KEY='your-secret-key',
+    SECRET_KEY=settings.secret_key,
     INSTALLED_APPS=[
         'django.contrib.auth',
         'django.contrib.contenttypes',
