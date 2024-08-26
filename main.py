@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from django.conf import settings
+from django.conf import settings as sett
 from django.contrib.auth.hashers import make_password, check_password
 import django
 from config_data.config import settings
@@ -26,7 +26,7 @@ class PasswordCheckResponse(BaseModel):
 app = FastAPI()
 
 
-settings.configure(
+sett.configure(
     SECRET_KEY=settings.secret_key,
     INSTALLED_APPS=[
         'django.contrib.auth',
